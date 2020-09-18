@@ -62,8 +62,12 @@ test("test TimeSpan class", () => {
   expect(include).toBeTruthy;
 
   let timePoint2 = new TimePoint(1600349570); 
+  let timePoint3 = new TimePoint(1600349000);
   let expand = timeSpan.expand(timePoint2);
+  let expand2 = timeSpan.expand(timePoint3);
+  console.log(expand.duration.value)
   expect(expand.duration.value).toBe(101);
+  expect(expand2.duration.value).toBe(497);
 })
 
 test("test TimePoint class", () => {
@@ -118,9 +122,6 @@ test("test TimePoint class", () => {
 
   let thisYear = nowTime.thisYear;
   expect(thisYear.duration.value).toBe(31622400000);
-
-  
- 
 })
 
 test("test duration function", () => {
@@ -153,7 +154,9 @@ test("test parse function", () => {
 })
 
 test("test add function", () => {
-  let ad = add(new TimePoint(), new Duration(5000));
+  let tp = new TimePoint();
+  let du = new Duration(5000);
+  let ad = add(tp, du);
   console.log(ad);
 })
 
