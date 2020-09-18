@@ -147,7 +147,7 @@ test("test utc function", () => {
   // null value case
   const dtp = utc(null);
   const timeSpan = new TimeSpan(dtp.value, Date.now()+1)
-  expect(timeSpan.include(timePoint)).toBeTruthy();
+  expect(timeSpan.include(dtp)).toBeTruthy();
 })
 
 test("test parse function", () => {
